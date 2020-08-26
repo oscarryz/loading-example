@@ -5,11 +5,12 @@ import User from './User'
 
 
 function App() {
+  // Get data with a delay
   const url = 'http://slowwly.robertomurray.co.uk/delay/4000/url/https://reqres.in/api/users?page=2'
-  const [users, setUsers] = useState([null, null, null])
+
+  const [users, setUsers] = useState([null, null, null]) 
   useEffect(() => {
     (async () => {
-      // Get data with a delay
       const response = await axios.get(url)
       setUsers(response.data.data)
     })()
@@ -18,15 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      {
-        users.map(u => {
-          if (u !== null) {
-            u.title = 'Program Manager'
-            u.phone = '(555) 658-1111'
-          }
-          return <User data={u} />
-        })
-      }
+      { users.map(user =>  <User data={user} />) }
     </div>
   );
 }
