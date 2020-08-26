@@ -1,5 +1,6 @@
 import React from 'react';
 import Skeleton from 'react-loading-skeleton'
+
 export default function User(props) {
     const { avatar, first_name, last_name, email } = props.data || {};
 
